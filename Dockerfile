@@ -7,5 +7,6 @@ WORKDIR /app
 # Copy the JAR file built by Maven into the image
 COPY target/*.jar app.jar
 
+EXPOSE 8080
 # Run the JAR file
 ENTRYPOINT ["java", "-jar", "app.jar"]
