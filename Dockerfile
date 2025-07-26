@@ -1,12 +1,14 @@
-# Use OpenJDK 8 base image
-FROM openjdk:8-jdk-alpine
+# Use official OpenJDK image as base
+FROM openjdk:17-jdk-slim
 
-# Set working directory in container
+# Set working directory
 WORKDIR /app
 
-# Copy the JAR file built by Maven into the image
-COPY target/*.jar app.jar
+# Copy the built jar from target folder
+COPY target/attendance-system-0.0.1-SNAPSHOT.jar app.jar
 
+# Expose the application port
 EXPOSE 8080
-# Run the JAR file
+
+# Run the jar file
 ENTRYPOINT ["java", "-jar", "app.jar"]
